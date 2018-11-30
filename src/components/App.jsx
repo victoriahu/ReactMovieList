@@ -1,21 +1,55 @@
-var App = () => (
-  <div>
-    <nav className="navbar">
-      <div className="col-md-6 offset-md-3">
-        <div><h5><em>search</em> view goes here</h5></div>
-      </div>
-    </nav>
-    <div className="row">
-      <div className="col-md-7">
-        <div><h5><em>videoPlayer</em> view goes here</h5></div>
-      </div>
-      <div className="col-md-5">
-        <div><h5><em>videoList</em> view goes here</h5></div>
-      </div>
-    </div>
-  </div>
-);
+import ButtonList from './ButtonList.js';
 
-// In the ES6 spec, files are "modules" and do not share a top-level scope
-// `var` declarations will only exist globally where explicitly defined
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      numButtons: 0,
+      buttonList: ['Home',
+      // 'Profile',
+      'Another',
+      'One',
+      'Hello',
+      'Bob',
+      'James',],
+    }
+  }
+
+  onClickButton(event) {
+    console.log(event.target.name);
+    if (event.target.name === 'Bob') {
+      console.log('Hello Robert');
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <ButtonList
+          onClickButton={this.onClickButton.bind(this)}
+          buttonList={this.state.buttonList}
+          />
+      </div>
+    )
+  }
+
+};
+{/* <div>
+        <span>
+          <button>Home asdf should render here</button>
+        </span>
+        <span>
+          <button>Profile button should render here</button>
+        </span>
+      </div> */}
+// Define what components we need
+  // Button list
+  // Button component
+  // 
+
+// In app's state:
+  // Information about the buttons
+
+
 export default App;
