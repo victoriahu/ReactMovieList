@@ -1,23 +1,21 @@
-import Button from './Button.js';
+var MovieList = (props) => {
 
-var ButtonList = ({buttonList, onClickButton}) => (
-  // TODO: Make two buttons, "Home" and "Profile"
-  <div>
-    {buttonList.map((name) => 
-    {
-      return (
-        <Button
-          buttonName={name}
-          callback={onClickButton}
-        />
-      )
-    })}
-  </div>
-)
+  return (
+    // <div>
+    // <div>
+    //     {props.searchResults.length && props.searchResults.map(item =>
+    //      <div className = "movie" key = {item.key}>{item.text}</div>
+    //     )}
+    // </div>
+    <div>
+        {props.movieList.map(item =>
+         <div className = "movie" key = {item.key}>{item.text}</div>
+        )}
+    </div>
+    // </div>
+  )
+  
+}
 
-// props = {
-//   onClickButton: 'function',
-//   buttonList: ['buttons'],
-// }
 
-export default ButtonList;
+export default MovieList;
